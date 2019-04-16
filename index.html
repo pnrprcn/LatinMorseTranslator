@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>deneme</title>
+    <h1 id="title1">{{message}}</h1>
+    <h2></h2>
+
+
+
+
+</head>
+
+
+<body style="background-color: #F9F6C9; font-family: 'Calibri Light';font-size: 20px">
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex"></script>
+<script>
+    $(function () {
+        var socket = io();
+        $('form').submit(function(e){
+            e.preventDefault(); // prevents page reloading
+            //$('#m').val('');
+            socket.emit('chat message', $('#m').val());//send
+            //$('#m').val('');
+            return false;
+        });
+        socket.on('chat message2', function(msg2){//get the message
+            $('#m2').append($('<output>').text(msg2));
+        });
+    });
+
+
+</script>
+<script>
+
+    var myObject = new Vue({
+        el: '#title1',
+        data: {message: 'Latin To Morse Translator!'}
+    })
+
+    methods:{
+
+    }
+
+
+</script>
+
+<form>
+    <tr>
+        <label for="m"></label>
+        <input id="m" type="text" name="text" style="width:30%;height:90px;padding:5%;font-size:1.2em;background-color:gold;float: left;">
+        <label for="m2"></label>
+        <output id="m2" type="text" name="text" style="width:30%;height:90px;padding:5%;font-size:1.2em;background-color:gold;float: right;"></output>
+
+    </tr>
+    <div>
+        <input id="s" type="submit" value="Convert" style="background-color: #555555;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none; display: inline-block;font-size: 16px;float: bottom;margin: 15px;">
+        <input type="reset" value="Reset" class="btn" tabindex="4"  style="background-color: #555555;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none; display: inline-block;font-size: 16px;float: bottom;margin: 15px;">
+        <input type="submit" value="Morse To Latin" onclick="window.location.href = 'index2.html'" style="background-color: #555555;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none; display: inline-block;font-size: 16px;float: bottom;margin: 15px;">
+
+    </div>
+
+
+</form>
+
+<p><a href="https://www.linkedin.com/in/p%C4%B1nar-per%C3%A7in-516556172/?originalSubdomain=tr">Made by Pınar Perçin</a></p>
+
+    <table border="0" class="full_width" style="float: left">
+        <tbody><tr>
+            <td>
+                <table class="narrow table small_font">
+                    <tbody><tr class="title"><th></th><th></th><th>Morse</th><th></th></tr>
+                    <tr><td></td><th>A</th><td>.<b>-</b>								</td><td></td></tr>
+                    <tr><td></td><th>B</th><td><b>-</b>...					</td><td></td></tr>
+                    <tr><td></td><th>C</th><td><b>-</b>.<b>-</b>.			</td><td></td></tr>
+                    <tr><td></td><th>D</th><td><b>-</b>..						</td><td></td></tr>
+                    <tr><td></td><th>E</th><td>.										</td><td></td></tr>
+                    <tr><td></td><th>F</th><td>..<b>-</b>.					</td><td></td></tr>
+                    <tr><td></td><th>G</th><td><b>-</b><b>-</b>.				</td><td></td></tr>
+                    <tr><td></td><th>H</th><td>....							</td><td></td></tr>
+                    <tr><td></td><th>I</th><td>..										</td><td></td></tr>
+                    <tr><td></td><th>J</th><td>.<b>-</b><b>-</b><b>-</b>	</td><td></td></tr>
+                    <tr><td></td><th>K</th><td><b>-</b>.<b>-</b>				</td><td></td></tr>
+                    <tr><td></td><th>L</th><td>.<b>-</b>..					</td><td></td></tr>
+                    <tr><td></td><th>M</th><td><b>-</b><b>-</b>						</td><td></td></tr>
+                    </tbody></table>
+            </td>
+            <td>
+                <table class="narrow table small_font">
+                    <tbody><tr class="title"><th></th><th></th><th>Morse</th><th></th></tr>
+                    <tr><td></td><th>N</th><td><b>-</b>.								</td><td></td></tr>
+                    <tr><td></td><th>O</th><td><b>-</b><b>-</b><b>-</b>		</td><td></td></tr>
+                    <tr><td></td><th>P</th><td>.<b>-</b><b>-</b>.			</td><td></td></tr>
+                    <tr><td></td><th>Q</th><td><b>-</b><b>-</b>.<b>-</b>	</td><td></td></tr>
+                    <tr><td></td><th>R</th><td>.<b>-</b>.						</td><td></td></tr>
+                    <tr><td></td><th>S</th><td>...								</td><td></td></tr>
+                    <tr><td></td><th>T</th><td><b>-</b>										</td><td></td></tr>
+                    <tr><td></td><th>U</th><td>..<b>-</b>						</td><td></td></tr>
+                    <tr><td></td><th>V</th><td>...<b>-</b>					</td><td></td></tr>
+                    <tr><td></td><th>W</th><td>.<b>-</b><b>-</b>				</td><td></td></tr>
+                    <tr><td></td><th>X</th><td><b>-</b>..<b>-</b>			</td><td></td></tr>
+                    <tr><td></td><th>Y</th><td><b>-</b>.<b>-</b><b>-</b>	</td><td></td></tr>
+                    <tr><td></td><th>Z</th><td><b>-</b><b>-</b>..			</td><td></td></tr>
+                    </tbody></table>
+            </td>
+            <td>
+                <table class="narrow table small_font">
+                    <tbody><tr class="title"><th></th><th></th><th>Morse</th><th></th></tr>
+                    <tr><td></td><th>Ä				</th><td>.<b>-</b>.<b>-</b>								</td><td></td></tr>
+                    <tr><td></td><th>Á				</th><td>.<b>-</b><b>-</b>.<b>-</b>					</td><td></td></tr>
+                    <tr><td></td><th>Å				</th><td>.<b>-</b><b>-</b>.<b>-</b>					</td><td></td></tr>
+                    <tr><td></td><th>Ch					</th><td><b>-</b><b>-</b><b>-</b><b>-</b>				</td><td></td></tr>
+                    <tr><td></td><th>É				</th><td>..<b>-</b>..									</td><td></td></tr>
+                    <tr><td></td><th>Ñ				</th><td><b>-</b><b>-</b>.<b>-</b><b>-</b>			</td><td></td></tr>
+                    <tr><td></td><th>Ö				</th><td><b>-</b><b>-</b><b>-</b>.						</td><td></td></tr>
+                    <tr><td></td><th>Ü				</th><td>..<b>-</b><b>-</b>								</td><td></td></tr>
+                    <tr><td></td><th>		<b></b>		</th><td>								</td><td></td></tr>
+                    <tr><td></td><th>		<b></b>		</th><td>								</td><td></td></tr>
+                    <tr><td></td><th>				<b></b></th><td>								</td><td></td></tr>
+                    <tr><td></td><th>	<b></b>			</th><td>								</td><td></td></tr>
+                    <tr><td></td><th>			<b></b>	</th><td>								</td><td></td></tr>
+
+                    </tbody></table>
+            </td>
+            <td>
+                <table class="narrow table small_font">
+                    <tbody><tr class="title"><th></th><th></th><th>Morse</th><th></th></tr>
+                    <tr><td></td><th>0						</th><td><b>-</b><b>-</b><b>-</b><b>-</b><b>-</b>	</td><td></td></tr>
+                    <tr><td></td><th>1						</th><td>.<b>-</b><b>-</b><b>-</b><b>-</b>			</td><td></td></tr>
+                    <tr><td></td><th>2						</th><td>..<b>-</b><b>-</b><b>-</b>					</td><td></td></tr>
+                    <tr><td></td><th>3						</th><td>...<b>-</b><b>-</b>							</td><td></td></tr>
+                    <tr><td></td><th>4						</th><td>....<b>-</b>									</td><td></td></tr>
+                    <tr><td></td><th>5						</th><td>.....											</td><td></td></tr>
+                    <tr><td></td><th>6						</th><td><b>-</b> ....									</td><td></td></tr>
+                    <tr><td></td><th>7						</th><td><b>-</b><b>-</b> ...							</td><td></td></tr>
+                    <tr><td></td><th>8						</th><td><b>-</b><b>-</b><b>-</b> ..					</td><td></td></tr>
+                    <tr><td></td><th>9						</th><td><b>-</b><b>-</b><b>-</b><b>-</b>.			</td><td></td></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    </tbody></table>
+            </td>
+            <td>
+                <table class="narrow table small_font">
+                    <tbody><tr class="title"><th></th><th>Punctuation Mark</th><th>Morse</th><th></th></tr>
+                    <tr><td></td><td>Full-stop (period)	</td><td>.<b>-</b>.<b>-</b>.<b>-</b>			</td><td></td></tr>
+                    <tr><td></td><td>Comma					</td><td><b>-</b><b>-</b>..<b>-</b><b>-</b>	</td><td></td></tr>
+                    <tr><td></td><td>Colon					</td><td><b>-</b><b>-</b><b>-</b>...			</td><td></td></tr>
+                    <tr><td></td><td>Question mark (query)	</td><td>..<b>-</b><b>-</b>..					</td><td></td></tr>
+                    <tr><td></td><td>Apostrophe			</td><td>.<b>-</b><b>-</b><b>-</b><b>-</b>.	</td><td></td></tr>
+                    <tr><td></td><td>Hyphen				</td><td><b>-</b>....<b>-</b>					</td><td></td></tr>
+                    <tr><td></td><td>Fraction bar			</td><td><b>-</b>..<b>-</b>.							</td><td></td></tr>
+                    <tr><td></td><td>Brackets (parentheses)</td><td><b>-</b>.<b>-</b><b>-</b>.<b>-</b>	</td><td></td></tr>
+                    <tr><td></td><td>Quotation marks		</td><td>.<b>-</b>..<b>-</b>.					</td><td></td></tr>
+                    <tr><td></td><td>At sign				</td><td>.<b>-</b><b>-</b>.<b>-</b>.			</td><td></td></tr>
+                    <tr><td></td><td>Equals sign			</td><td><b>-</b>...<b>-</b>							</td><td></td></tr>
+                    <tr><td></td><td>Error					</td><td>........					</td><td></td></tr>
+                    </tbody></table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</body>
+</html>
